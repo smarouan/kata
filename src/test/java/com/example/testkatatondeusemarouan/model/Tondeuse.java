@@ -10,10 +10,18 @@ public class Tondeuse {
     private Position position;
 
 
-    public void executeCommand(char commands, int maxX, int maxY) {
-        if(commands == 'G'){
-            position.gauche();
+    public void executeCommand(char command, int maxX, int maxY) {
+        switch (command) {
+            case 'A': position.avance(maxX, maxX); break;
+            case 'G': position.gauche(); break;
+            case 'D': position.droite(); break;
         }
 
+    }
+
+    public void executeCommands(String commands, int maxX, int maxY) {
+        for (char command : commands.toCharArray()) {
+            executeCommand(command, maxX, maxY);
+        }
     }
 }

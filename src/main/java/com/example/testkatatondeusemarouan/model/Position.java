@@ -27,8 +27,20 @@ public class Position {
     }
 
     public void gauche() {
-        if(orientation == 'N'){
-            orientation = 'W';
+        switch (orientation) {
+            case 'N': orientation = 'W'; break;
+            case 'W': orientation = 'S'; break;
+            case 'S': orientation = 'E'; break;
+            case 'E': orientation = 'N'; break;
+        }
+    }
+
+    public void droite() {
+        switch (orientation) {
+            case 'N': orientation = 'E'; break;
+            case 'E': orientation = 'S'; break;
+            case 'S': orientation = 'W'; break;
+            case 'W': orientation = 'N'; break;
         }
     }
 }
