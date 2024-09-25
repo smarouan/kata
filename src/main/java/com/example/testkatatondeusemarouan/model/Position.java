@@ -18,16 +18,16 @@ public class Position {
 
     public void avance(int maxX, int maxY) {
         if(orientation == 'N'){
-            y++;
+            if (y < maxY) y++;
         }
         if(orientation == 'S'){
-            y--;
+            if (y > 0) y--;
         }
         if(orientation == 'W'){
-            x--;
+            if (x > 0) x--;
         }
         if(orientation == 'E'){
-            x++;
+            if(x < maxX) x++;
         }
 
     }
