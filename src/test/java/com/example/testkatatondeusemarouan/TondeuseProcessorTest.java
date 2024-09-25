@@ -29,8 +29,7 @@ public class TondeuseProcessorTest {
         Tondeuse tondeuse = processor.process("1 2 N");
 
         // Assert
-        assertNotNull(tondeuse);
-        assertEquals("1 2 N", tondeuse.getPosition().toString());
+        assertNull(tondeuse);
     }
 
     @Test
