@@ -10,6 +10,8 @@ public class TondeuseProcessor implements ItemProcessor<String, Tondeuse> {
     private int maxY;
     private boolean isFirstLine = true;
 
+    private Tondeuse currentTondeuse;
+
     @Override
     public Tondeuse process(String item) throws Exception {
         if(isFirstLine) {
@@ -20,8 +22,17 @@ public class TondeuseProcessor implements ItemProcessor<String, Tondeuse> {
             return null;
         }
 
-        String[] parts = item.split(" ");
-        Position position = new Position(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), parts[2].charAt(0));
-        return new Tondeuse(position);
+        if(currentTondeuse == null) {
+            String[] parts = item.split(" ");
+            Position position = new Position(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), parts[2].charAt(0));
+            currentTondeuse = new Tondeuse(position);
+            return null;
+        } else {
+        currentTondeuse.executeCommands(item, maxX, maxY);
+        Tondeuse processedTondeuse = currentTondeuse;
+        currentTondeuse = null;
+        return processedTondeuse;
+    }
+
     }
 }
