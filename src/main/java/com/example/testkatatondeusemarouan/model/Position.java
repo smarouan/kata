@@ -43,4 +43,9 @@ public class Position {
             case 'W': orientation = 'N'; break;
         }
     }
+
+    @Override
+    public String toString() {
+        return x + " " + y + " " + orientation;
+    }
 }

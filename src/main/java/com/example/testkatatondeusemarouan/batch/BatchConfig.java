@@ -64,12 +64,7 @@ public class BatchConfig {
     }
 
     private ItemProcessor<? super String,? extends Tondeuse> processor() {
-        return new ItemProcessor<>() {
-            @Override
-            public Tondeuse process(String item) throws Exception {
-                return new Tondeuse(new Position(0,0, 'N'));
-            }
-        };
+        return new TondeuseProcessor();
     }
 
     private ItemReader<String> reader() {
