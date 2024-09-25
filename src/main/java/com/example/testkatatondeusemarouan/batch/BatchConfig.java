@@ -54,16 +54,19 @@ public class BatchConfig {
                 .build();
     }
 
-    private ItemWriter<? super Tondeuse> writer() {
-        return new ItemWriter<Tondeuse>() {
-            @Override
-            public void write(Chunk<? extends Tondeuse> chunk) throws Exception {
-                System.out.println(chunk);
-            }
-        };
+    @Bean
+    public ItemWriter<Tondeuse> writer() {
+            return tondeuses -> {
+                for (Tondeuse tondeuse : tondeuses) {
+                    Position finalPosition = tondeuse.getPosition();
+                    System.out.println(finalPosition.getX() + " " +
+                            finalPosition.getY() + " " +
+                            finalPosition.getOrientation());
+                }
+            };
     }
 
-    private ItemProcessor<? super String,? extends Tondeuse> processor() {
+    private ItemProcessor<String,Tondeuse> processor() {
         return new TondeuseProcessor();
     }
 

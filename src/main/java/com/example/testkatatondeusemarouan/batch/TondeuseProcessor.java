@@ -3,7 +3,9 @@ package com.example.testkatatondeusemarouan.batch;
 import com.example.testkatatondeusemarouan.model.Position;
 import com.example.testkatatondeusemarouan.model.Tondeuse;
 import org.springframework.batch.item.ItemProcessor;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TondeuseProcessor implements ItemProcessor<String, Tondeuse> {
 
    private int maxX;
