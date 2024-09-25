@@ -25,4 +25,10 @@ public class Position {
         }
 
     }
+
+    public void gauche() {
+        if(orientation == 'N'){
+            orientation = 'W';
+        }
+    }
 }

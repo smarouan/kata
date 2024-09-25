@@ -10,7 +10,10 @@ public class Tondeuse {
     private Position position;
 
 
-    public void executeCommand(char commands, int i, int i1) {
+    public void executeCommand(char commands, int maxX, int maxY) {
+        if(commands == 'G'){
+            position.gauche();
+        }
 
     }
 }
