@@ -20,6 +20,9 @@ public class Position {
         if(orientation == 'N'){
             y++;
         }
+        if(orientation == 'S'){
+            y--;
+        }
 
     }
 }
