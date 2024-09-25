@@ -17,17 +17,11 @@ public class Position {
     private char orientation;
 
     public void avance(int maxX, int maxY) {
-        if(orientation == 'N'){
-            if (y < maxY) y++;
-        }
-        if(orientation == 'S'){
-            if (y > 0) y--;
-        }
-        if(orientation == 'W'){
-            if (x > 0) x--;
-        }
-        if(orientation == 'E'){
-            if(x < maxX) x++;
+        switch (orientation) {
+            case 'N': if (y < maxY) y++; break;
+            case 'E': if (x < maxX) x++; break;
+            case 'S': if (y > 0) y--; break;
+            case 'W': if (x > 0) x--; break;
         }
 
     }
