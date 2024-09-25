@@ -17,6 +17,9 @@ public class Position {
     private char orientation;
 
     public void avance() {
+        if(orientation == 'N'){
+            y++;
+        }
 
     }
 }
