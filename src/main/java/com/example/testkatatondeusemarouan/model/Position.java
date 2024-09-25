@@ -23,6 +23,9 @@ public class Position {
         if(orientation == 'S'){
             y--;
         }
+        if(orientation == 'W'){
+            x--;
+        }
 
     }
 }
