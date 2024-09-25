@@ -32,4 +32,23 @@ public class TondeuseProcessorTest {
         assertNotNull(tondeuse);
         assertEquals("1 2 N", tondeuse.getPosition().toString());
     }
+
+    @Test
+    public void testProcessorWithValidInputWithCommand() throws Exception {
+        // Arrange
+        TondeuseProcessor processor = new TondeuseProcessor();
+
+        processor.process("5 5");
+
+        // Acte
+        processor.process("1 2 N");
+
+        Tondeuse tondeuse = processor.process("GAGAGAGAA");
+
+       // Assert
+        assertNotNull(tondeuse);
+        assertEquals("1 3 N", tondeuse.getPosition().toString());
+
+    }
+
 }
