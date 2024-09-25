@@ -16,7 +16,7 @@ public class Position {
 
     private char orientation;
 
-    public void avance() {
+    public void avance(int maxX, int maxY) {
         if(orientation == 'N'){
             y++;
         }
@@ -25,6 +25,9 @@ public class Position {
         }
         if(orientation == 'W'){
             x--;
+        }
+        if(orientation == 'E'){
+            x++;
         }
 
     }
