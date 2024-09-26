@@ -3,6 +3,7 @@ package com.example.testkatatondeusemarouan.batch;
 
 import com.example.testkatatondeusemarouan.model.Position;
 import com.example.testkatatondeusemarouan.model.Tondeuse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -26,6 +27,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableBatchProcessing
+@Slf4j
 public class BatchConfig {
 
     @Bean
@@ -59,7 +61,7 @@ public class BatchConfig {
             return tondeuses -> {
                 for (Tondeuse tondeuse : tondeuses) {
                     Position finalPosition = tondeuse.getPosition();
-                    System.out.println(finalPosition.getX() + " " +
+                    log.info(finalPosition.getX() + " " +
                             finalPosition.getY() + " " +
                             finalPosition.getOrientation());
                 }

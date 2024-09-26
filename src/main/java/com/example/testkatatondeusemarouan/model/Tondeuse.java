@@ -12,7 +12,7 @@ public class Tondeuse {
 
     public void executeCommand(char command, int maxX, int maxY) {
         switch (command) {
-            case 'A': position.avance(maxX, maxX); break;
+            case 'A': position.avance(maxX, maxY); break;
             case 'G': position.gauche(); break;
             case 'D': position.droite(); break;
         }
